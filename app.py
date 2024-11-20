@@ -8,4 +8,9 @@ def index():
             {"name": "oranges", "quantity": 2},
             {"name": "strawberries", "quantity": 6}
     ]
-    return render_template("index.html", fruits=fruits)
+
+    filter_fruit =[]
+    for fruit in fruits:
+        if fruit ['name'].startswith('o') or fruit ['quantity']>3:
+            filter_fruit.append(fruit)
+    return render_template("index.html", fruits=filter_fruit)
